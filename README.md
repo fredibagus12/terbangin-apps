@@ -1,3 +1,3 @@
 # TERBANGIN Apps
 
-Terbangin Apps Adlaha Aplikasi Pemesanan Tiket Pesawat
+Terbangin Apps Adalah Aplikasi Pemesanan Tiket Pesawat dan kereta
