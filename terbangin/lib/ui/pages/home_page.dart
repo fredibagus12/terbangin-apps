@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
-import 'package:terbangin/ui/pages/destination_card.dart';
+import 'package:terbangin/ui/widget/destination_card.dart';
+import 'package:terbangin/ui/widget/destination_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -128,10 +129,35 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    // ignore: non_constant_identifier_names
+    Widget NewDestinations() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+          left: defaultMargin,
+          right: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Tahun Baru Ini',
+              style: blackTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: semiBold,
+              ),
+            ),
+            DestinationTile(),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         popularDestinations(),
+        NewDestinations(),
       ],
     );
   }
