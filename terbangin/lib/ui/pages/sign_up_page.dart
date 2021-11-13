@@ -1,4 +1,4 @@
-// ignore_for_file: unused_element, duplicate_ignore
+// ignore_for_file: unused_element, duplicate_ignore, dead_code
 
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
@@ -25,7 +25,8 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget inputSection() {
-      Widget emailInput() {
+      // ignore: non_constant_identifier_names
+      Widget InputNama() {
         return Container(
           margin: const EdgeInsets.only(bottom: 20),
           child: Column(
@@ -63,6 +64,170 @@ class SignUpPage extends StatelessWidget {
         );
       }
 
+      // ignore: non_constant_identifier_names
+      Widget InputEmail() {
+        return Container(
+          margin: const EdgeInsets.only(bottom: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // ignore: prefer_const_constructors
+              Text(
+                'Alamat Email',
+              ),
+              // ignore: prefer_const_constructors
+              SizedBox(
+                height: 6,
+              ),
+              TextFormField(
+                cursorColor: kBlackColor,
+                decoration: InputDecoration(
+                  hintText: 'Alamat Lengkap Emailmu',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      defaultRadius,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      defaultRadius,
+                    ),
+                    borderSide: BorderSide(
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+
+      // ignore: non_constant_identifier_names
+      Widget KataSandi() {
+        return Container(
+          margin: const EdgeInsets.only(bottom: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // ignore: prefer_const_constructors
+              Text(
+                'Kata Sandi',
+              ),
+              // ignore: prefer_const_constructors
+              SizedBox(
+                height: 6,
+              ),
+              TextFormField(
+                cursorColor: kBlackColor,
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: 'Masukkan Kata sandi',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      defaultRadius,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      defaultRadius,
+                    ),
+                    borderSide: BorderSide(
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+
+      // ignore: non_constant_identifier_names
+      Widget Inputhobi() {
+        return Container(
+          margin: const EdgeInsets.only(bottom: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // ignore: prefer_const_constructors
+              Text(
+                'Hobi',
+              ),
+              // ignore: prefer_const_constructors
+              SizedBox(
+                height: 6,
+              ),
+              TextFormField(
+                cursorColor: kBlackColor,
+                decoration: InputDecoration(
+                  hintText: 'Tuliskan Hobi Kamu',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      defaultRadius,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      defaultRadius,
+                    ),
+                    borderSide: BorderSide(
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+
+      Widget submitButton() {
+        // ignore: sized_box_for_whitespace
+        return Container(
+          width: double.infinity,
+          height: 55,
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              backgroundColor: kPrimaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  defaultRadius,
+                ),
+              ),
+            ),
+            child: Text(
+              'Mulai Masuk',
+              style: whiteTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: medium,
+              ),
+            ),
+          ),
+        );
+      }
+
+      Widget sdkButton() {
+        return Container(
+          alignment: Alignment.center,
+          // ignore: prefer_const_constructors
+          margin: EdgeInsets.only(
+            bottom: 73,
+            top: 50,
+          ),
+          // ignore: prefer_const_constructors
+          child: Text(
+            'Syarat dan Ketentuan berlaku',
+            style: greyTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: light,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        );
+      }
+
       return Container(
         margin: const EdgeInsets.only(top: 30),
         padding: const EdgeInsets.symmetric(
@@ -77,7 +242,12 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            emailInput(),
+            InputNama(),
+            InputEmail(),
+            KataSandi(),
+            Inputhobi(),
+            submitButton(),
+            sdkButton(),
           ],
         ),
       );
