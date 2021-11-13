@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/custom_button.dart';
 
 class BonusPage extends StatelessWidget {
   const BonusPage({Key? key}) : super(key: key);
@@ -131,28 +132,15 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget startButton() {
-      return Container(
-          width: 220,
-          height: 55,
-          margin: const EdgeInsets.only(top: 50),
-          child: TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/main');
-            },
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  defaultRadius,
-                ),
-              ),
-            ),
-            child: Text('Mulai Terbang Sekarang',
-                style: whiteTextStyle.copyWith(
-                  fontSize: 18,
-                  fontWeight: medium,
-                )),
-          ));
+      return CustomButton(
+        width: 220,
+        title: 'Mulai Terbang',
+        // ignore: prefer_const_constructors
+        margin: EdgeInsets.only(top: 50),
+        onPressed: () {
+          Navigator.pushNamed(context, '/main');
+        },
+      );
     }
 
     // ignore: prefer_const_constructors

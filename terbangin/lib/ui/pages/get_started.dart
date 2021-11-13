@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/custom_button.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({Key? key}) : super(key: key);
@@ -45,31 +46,16 @@ class GetStartedPage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Container(
+                CustomButton(
+                  title: 'Mulai terbang',
                   width: 220,
-                  height: 55,
                   margin: EdgeInsets.only(
                     top: 50,
                     bottom: 80,
                   ),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.popAndPushNamed(context, '/sign-up');
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: kPrimaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(defaultRadius),
-                      ),
-                    ),
-                    child: Text(
-                      'Mulai Terbang',
-                      style: whiteTextStyle.copyWith(
-                        fontSize: 18,
-                        fontWeight: medium,
-                      ),
-                    ),
-                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign-up');
+                  },
                 ),
               ],
             ),
