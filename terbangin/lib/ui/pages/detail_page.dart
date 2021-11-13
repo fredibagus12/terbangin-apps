@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/photo_item.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -147,36 +148,52 @@ class DetailPage extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    'Berada di jalur jalan provinsi yang menghubungkan Denpasar\nSingaraja serta letaknya yang dekat \ndengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                    'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
                     style: blackTextStyle.copyWith(
                       height: 2,
                     ),
                   ),
-                  // SizedBox(
-                  //   height: 6,
-                  // ),
-                  // Text(
-                  //   'Photo',
-                  //   style: blackTextStyle.copyWith(
-                  //     fontSize: 16,
-                  //     fontWeight: semiBold,
-                  //   ),
-                  // ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Photo',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
 
-                  // Container(
-                  //   width: 100,
-                  //   height: 24,
-                  //   margin: EdgeInsets.only(
-                  //     top: 30,
-                  //   ),
-                  //   decoration: BoxDecoration(
-                  //     image: DecorationImage(
-                  //       image: AssetImage(
-                  //         'assets/image_destination_5.png',
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+                  Row(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      PhotoItem(
+                        imageUrl: 'assets/image_destination_5.png',
+                      ),
+                      PhotoItem(
+                        imageUrl: 'assets/image_destination_6.png',
+                      ),
+                      PhotoItem(
+                        imageUrl: 'assets/image_destination_7.png',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Photo',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
                 ],
               ),
             ),
