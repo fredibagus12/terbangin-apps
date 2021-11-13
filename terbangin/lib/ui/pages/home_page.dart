@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/pages/destination_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,13 +46,9 @@ class HomePage extends StatelessWidget {
             Container(
               width: 60,
               height: 60,
-
-              // ignore: prefer_const_constructors
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                // ignore: prefer_const_constructors
                 image: DecorationImage(
-                  // ignore: prefer_const_constructors
                   image: AssetImage(
                     'assets/image_profil.png',
                   ),
@@ -63,90 +62,68 @@ class HomePage extends StatelessWidget {
 
     Widget popularDestinations() {
       return Container(
-        // ignore: prefer_const_constructors
         margin: EdgeInsets.only(top: 30),
-        child: Row(
-          children: [
-            Container(
-              width: 200,
-              height: 323,
-              margin: EdgeInsets.only(
-                left: defaultMargin,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              DestinationCard(
+                name: 'danau venesia',
+                city: 'Italia',
+                imageUrl: 'assets/image_destination_1.png',
+                rating: 2.8,
               ),
-              // ignore: prefer_const_constructors
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                color: kWhiteColor,
+              DestinationCard(
+                name: 'danau bali',
+                city: 'Indonesia',
+                imageUrl: 'assets/image_destination_2.png',
+                rating: 3.7,
               ),
-              child: Column(
-                children: [
-                  Container(
-                    width: 180,
-                    height: 220,
-                    // ignore: prefer_const_constructors
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      // ignore: prefer_const_constructors
-                      image: DecorationImage(
-                        // ignore: prefer_const_constructors
-                        image: AssetImage(
-                          'assets/image_destination_1.png',
-                        ),
-                      ),
-                    ),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        width: 55,
-                        height: 30,
-                        // ignore: prefer_const_constructors
-
-                        decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          // ignore: prefer_const_constructors
-
-                          // ignore: prefer_const_constructors
-                          borderRadius: BorderRadius.only(
-                            // ignore: prefer_const_constructors
-                            bottomLeft: Radius.circular(18),
-                          ),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 20,
-                              height: 20,
-                              // ignore: prefer_const_constructors
-                              margin: EdgeInsets.only(right: 2),
-                              // ignore: prefer_const_constructors
-                              decoration: BoxDecoration(
-                                // ignore: prefer_const_constructors
-                                image: DecorationImage(
-                                  // ignore: prefer_const_constructors
-                                  image: AssetImage(
-                                    'assets/star.png',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Text(
-                              '4,8',
-                              style: blackTextStyle.copyWith(
-                                fontWeight: medium,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ],
+              DestinationCard(
+                name: 'Sidney',
+                city: 'Australia',
+                imageUrl: 'assets/image_destination_3.png',
+                rating: 4.8,
               ),
-            ),
-          ],
+              DestinationCard(
+                name: 'danau venesia',
+                city: 'Italia',
+                imageUrl: 'assets/image_destination_4.png',
+                rating: 2.8,
+              ),
+              DestinationCard(
+                name: 'danau bali',
+                city: 'Indonesia',
+                imageUrl: 'assets/image_destination_5.png',
+                rating: 3.7,
+              ),
+              DestinationCard(
+                name: 'Sidney',
+                city: 'Australia',
+                imageUrl: 'assets/image_destination_6.png',
+                rating: 4.8,
+              ),
+              DestinationCard(
+                name: 'danau venesia',
+                city: 'Italia',
+                imageUrl: 'assets/image_destination_7.png',
+                rating: 2.8,
+              ),
+              DestinationCard(
+                name: 'danau bali',
+                city: 'Indonesia',
+                imageUrl: 'assets/image_destination_8.png',
+                rating: 3.7,
+              ),
+              DestinationCard(
+                name: 'Sidney',
+                city: 'Australia',
+                imageUrl: 'assets/image_destination_9.png',
+                rating: 4.8,
+              ),
+            ],
+          ),
         ),
       );
     }
