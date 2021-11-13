@@ -1,9 +1,26 @@
-import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:terbangin/shared/theme.dart';
+import 'dart:async';
 
-class SplashPage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:terbangin/shared/theme.dart';
+// ignore: unused_import
+import 'package:terbangin/ui/pages/get_started.dart';
+
+class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    // ignore: prefer_const_constructors
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushNamed(context, '/get-started');
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

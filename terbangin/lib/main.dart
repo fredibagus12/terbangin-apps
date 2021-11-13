@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:terbangin/ui/pages/get_started.dart';
-// ignore: unused_import
 import 'ui/pages/splash_page.dart';
 
 void main() => runApp(const MyApp());
@@ -10,9 +9,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GetStartedPage(),
+      routes: {
+        '/': (context) => const SplashPage(),
+        '/get-started': (context) => const GetStartedPage(),
+      },
     );
   }
 }
