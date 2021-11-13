@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: Text(
-          'Mulai Terbang',
+          title,
           style: whiteTextStyle.copyWith(
             fontSize: 18,
             fontWeight: medium,

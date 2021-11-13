@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/custom_button.dart';
 import 'package:terbangin/ui/widget/interest_item.dart';
 import 'package:terbangin/ui/widget/photo_item.dart';
 
@@ -223,6 +224,41 @@ class DetailPage extends StatelessWidget {
                 ],
               ),
             ),
+            // ignore: avoid_unnecessary_containers
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        Text(
+                          'IDR 2.500.000',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 18,
+                            fontWeight: medium,
+                          ),
+                        ),
+                        Text(
+                          'Per Orang',
+                          style: greyTextStyle.copyWith(
+                            fontWeight: light,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  CustomButton(
+                    title: 'pesan ini',
+                    onPressed: () {},
+                    width: 170,
+                  )
+                ],
+              ),
+            )
           ],
         ),
       );
@@ -230,12 +266,14 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          backgroundImage(),
-          customShadow(),
-          content(),
-        ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            backgroundImage(),
+            customShadow(),
+            content(),
+          ],
+        ),
       ),
     );
   }
