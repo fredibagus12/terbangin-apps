@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/interest_item.dart';
 import 'package:terbangin/ui/widget/photo_item.dart';
 
 class DetailPage extends StatelessWidget {
@@ -185,7 +186,7 @@ class DetailPage extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    'Photo',
+                    'Interest',
                     style: blackTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,
@@ -193,6 +194,31 @@ class DetailPage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 6,
+                  ),
+                  Row(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      InterestItem(
+                        interest: 'Rumah makan',
+                      ),
+                      InterestItem(
+                        interest: 'pemandian',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      InterestItem(
+                        interest: 'Taman Bermain',
+                      ),
+                      InterestItem(
+                        interest: 'pelusotan',
+                      ),
+                    ],
                   ),
                 ],
               ),
