@@ -87,7 +87,7 @@ class DestinationCard extends StatelessWidget {
                     Text(
                       rating.toString(),
                       style: blackTextStyle.copyWith(
-                        fontWeight: medium,
+                        fontWeight: semiBold,
                       ),
                     ),
                   ],

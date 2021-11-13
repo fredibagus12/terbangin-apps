@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
 
 class DestinationTile extends StatelessWidget {
-  const DestinationTile({Key? key}) : super(key: key);
+  final String name;
+  final String city;
+  final String imageUrl;
+  final double rating;
+
+  const DestinationTile(
+      {Key? key,
+      required this.name,
+      required this.city,
+      required this.imageUrl,
+      this.rating = 0.0})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +35,8 @@ class DestinationTile extends StatelessWidget {
               // ignore: prefer_const_constructors
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: const AssetImage(
-                  'assets/image_destination_1.png',
+                image: AssetImage(
+                  imageUrl,
                 ),
               ),
             ),
@@ -37,7 +48,7 @@ class DestinationTile extends StatelessWidget {
               children: [
                 // ignore: prefer_const_constructors
                 Text(
-                  'Danau Beratan',
+                  name,
                   style: blackTextStyle.copyWith(
                     fontSize: 18,
                     fontWeight: semiBold,
@@ -49,7 +60,7 @@ class DestinationTile extends StatelessWidget {
                 ),
                 // ignore: avoid_unnecessary_containers
                 Text(
-                  'singaraja',
+                  city,
                   style: greyTextStyle.copyWith(
                     fontWeight: light,
                   ),
@@ -58,6 +69,8 @@ class DestinationTile extends StatelessWidget {
             ),
           ),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: 20,
@@ -76,9 +89,9 @@ class DestinationTile extends StatelessWidget {
                 ),
               ),
               Text(
-                '7',
+                rating.toString(),
                 style: blackTextStyle.copyWith(
-                  fontWeight: medium,
+                  fontWeight: semiBold,
                 ),
               ),
             ],
