@@ -1,5 +1,8 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/pages/home_page.dart';
 import 'package:terbangin/ui/widget/custom_bottom_navigation_item.dart';
 
 class MainPage extends StatelessWidget {
@@ -7,6 +10,11 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget BuildContent() {
+      // ignore: prefer_const_constructors
+      return HomePage();
+    }
+
     Widget customBottomNavigation() {
       return Align(
         alignment: Alignment.bottomCenter,
@@ -53,7 +61,7 @@ class MainPage extends StatelessWidget {
       body: Stack(
         children: [
           // ignore: prefer_const_constructors
-          Text('slnv'),
+          BuildContent(),
           customBottomNavigation(),
         ],
       ),
