@@ -53,7 +53,9 @@ class GetStartedPage extends StatelessWidget {
                     bottom: 80,
                   ),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.popAndPushNamed(context, '/sign-up');
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: kPrimaryColor,
                       shape: RoundedRectangleBorder(
