@@ -31,6 +31,7 @@ class BonusPage extends StatelessWidget {
           ],
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -69,11 +70,87 @@ class BonusPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                Text(
+                  'Pay',
+                  style: whiteTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: medium,
+                  ),
+                ),
               ],
+            ),
+            // ignore: prefer_const_constructors
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'Saldo',
+              style: whiteTextStyle.copyWith(
+                fontWeight: light,
+              ),
+            ),
+
+            // ignore: prefer_const_constructors
+            Text(
+              'IDR 190.000.000',
+              style: whiteTextStyle.copyWith(
+                fontSize: 26,
+                fontWeight: medium,
+              ),
             ),
           ],
         ),
       );
+    }
+
+    Widget title() {
+      return Container(
+        margin: const EdgeInsets.only(top: 80),
+        child: Text(
+          'Big Bonus 🎉',
+          style: blackTextStyle.copyWith(
+            fontSize: 32,
+            fontWeight: semiBold,
+          ),
+        ),
+      );
+    }
+
+    Widget subtitle() {
+      return Container(
+        margin: const EdgeInsets.only(top: 10),
+        child: Text(
+          'Kami Memberikan Bonus\nAgar Anda Menikmati Penerbangan',
+          style: greyTextStyle.copyWith(
+            fontSize: 16,
+            fontWeight: light,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
+
+    Widget startButton() {
+      return Container(
+          width: 220,
+          height: 55,
+          margin: const EdgeInsets.only(top: 50),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              backgroundColor: kPrimaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  defaultRadius,
+                ),
+              ),
+            ),
+            child: Text('Mulai Terbang Sekarang',
+                style: whiteTextStyle.copyWith(
+                  fontSize: 18,
+                  fontWeight: medium,
+                )),
+          ));
     }
 
     // ignore: prefer_const_constructors
@@ -84,6 +161,9 @@ class BonusPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             bonusCard(),
+            title(),
+            subtitle(),
+            startButton(),
           ],
         ),
       ),
