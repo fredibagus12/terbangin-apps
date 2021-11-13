@@ -63,6 +63,7 @@ class DetailPage extends StatelessWidget {
                 ),
               ),
             ),
+            //NOTE: TITLE
             Container(
               margin: EdgeInsets.only(
                 top: 256,
@@ -115,6 +116,67 @@ class DetailPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                ],
+              ),
+            ),
+
+            //NOTE: DESKRIPSI
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(top: 30),
+              padding: EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 30,
+              ),
+              decoration: BoxDecoration(
+                color: kWhiteColor,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //NOTE: ABOUT
+                  Text(
+                    'About',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Text(
+                    'Berada di jalur jalan provinsi yang menghubungkan Denpasar\nSingaraja serta letaknya yang dekat \ndengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                    style: blackTextStyle.copyWith(
+                      height: 2,
+                    ),
+                  ),
+                  // SizedBox(
+                  //   height: 6,
+                  // ),
+                  // Text(
+                  //   'Photo',
+                  //   style: blackTextStyle.copyWith(
+                  //     fontSize: 16,
+                  //     fontWeight: semiBold,
+                  //   ),
+                  // ),
+
+                  // Container(
+                  //   width: 100,
+                  //   height: 24,
+                  //   margin: EdgeInsets.only(
+                  //     top: 30,
+                  //   ),
+                  //   decoration: BoxDecoration(
+                  //     image: DecorationImage(
+                  //       image: AssetImage(
+                  //         'assets/image_destination_5.png',
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
