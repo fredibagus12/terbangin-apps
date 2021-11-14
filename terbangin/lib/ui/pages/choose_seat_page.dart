@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/pages/checkout_page.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 import 'package:terbangin/ui/widget/seat_item.dart';
 
@@ -315,8 +316,17 @@ class ChooseSeatPage extends StatelessWidget {
     Widget checkoutButton() {
       return CustomButton(
           title: 'Pesan sekarang',
-          onPressed: () {},
-          margin: const EdgeInsets.only(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                // ignore: prefer_const_constructors
+                builder: (context) => CheckoutPage(),
+              ),
+            );
+          },
+          // ignore: prefer_const_constructors
+          margin: EdgeInsets.only(
             top: 30,
             bottom: 46,
           ));
