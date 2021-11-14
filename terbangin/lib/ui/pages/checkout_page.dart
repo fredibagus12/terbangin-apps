@@ -1,5 +1,8 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/booking_details_item.dart';
 
 class CheckoutPage extends StatelessWidget {
   const CheckoutPage({Key? key}) : super(key: key);
@@ -85,6 +88,7 @@ class CheckoutPage extends StatelessWidget {
           color: kWhiteColor,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -108,6 +112,7 @@ class CheckoutPage extends StatelessWidget {
                   child: Column(
                     // ignore: prefer_const_literals_to_create_immutables
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    // ignore: duplicate_ignore
                     children: [
                       // ignore: prefer_const_constructors
                       Text(
@@ -160,6 +165,51 @@ class CheckoutPage extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: Column(
+                children: [
+                  Text(
+                    'Penjelasan Pesanan',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // ignore: prefer_const_constructors
+            BookingDetailsItem(
+              text: 'Traveler',
+              details: '2 orang',
+              textcolor: kPrimaryColor,
+            ),
+            BookingDetailsItem(
+              text: 'seat',
+              details: '6',
+              textcolor: kGreenColor,
+            ),
+            BookingDetailsItem(
+              text: 'vat',
+              details: '4%',
+              textcolor: kRedColor,
+            ),
+            BookingDetailsItem(
+              text: 'insurance',
+              details: 'NO',
+              textcolor: kPrimaryColor,
+            ),
+            BookingDetailsItem(
+              text: 'refundable',
+              details: 'YES',
+              textcolor: kPrimaryColor,
+            ),
+            BookingDetailsItem(
+              text: 'price',
+              details: 'IDR 2.000.000',
+              textcolor: kPrimaryColor,
             ),
           ],
         ),
