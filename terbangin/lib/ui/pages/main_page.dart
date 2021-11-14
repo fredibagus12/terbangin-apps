@@ -1,8 +1,13 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:terbangin/cubit/page_cubit.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/pages/home_page.dart';
+import 'package:terbangin/ui/pages/setting_page.dart';
+import 'package:terbangin/ui/pages/transaction_page.dart';
+import 'package:terbangin/ui/pages/wallet_page.dart';
 import 'package:terbangin/ui/widget/custom_bottom_navigation_item.dart';
 
 class MainPage extends StatelessWidget {
@@ -10,9 +15,19 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget BuildContent() {
-      // ignore: prefer_const_constructors
-      return HomePage();
+    Widget BuildContent(int currentindex) {
+      switch (currentindex) {
+        case 0:
+          return const HomePage();
+        case 1:
+          return const TransactionPage();
+        case 2:
+          return const WalletPage();
+        case 3:
+          return const SettingPage();
+        default:
+          return const HomePage();
+      }
     }
 
     Widget customBottomNavigation() {
@@ -35,20 +50,20 @@ class MainPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: const [
               CustomBottomNavigationitem(
+                index: 0,
                 imageUrl: 'assets/icon_home.png',
-                isSelected: true,
               ),
               CustomBottomNavigationitem(
+                index: 1,
                 imageUrl: 'assets/icon_book.png',
-                isSelected: false,
               ),
               CustomBottomNavigationitem(
+                index: 2,
                 imageUrl: 'assets/icon_card.png',
-                isSelected: false,
               ),
               CustomBottomNavigationitem(
+                index: 3,
                 imageUrl: 'assets/icon_setting.png',
-                isSelected: false,
               ),
             ],
           ),
@@ -56,14 +71,16 @@ class MainPage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          // ignore: prefer_const_constructors
-          BuildContent(),
-          customBottomNavigation(),
-        ],
+    return BlocBuilder<PageCubit, int>(
+      builder: (BuildContext context, currentindex) => Scaffold(
+        backgroundColor: kBackgroundColor,
+        body: Stack(
+          children: [
+            // ignore: prefer_const_constructors
+            BuildContent(currentindex),
+            customBottomNavigation(),
+          ],
+        ),
       ),
     );
   }
