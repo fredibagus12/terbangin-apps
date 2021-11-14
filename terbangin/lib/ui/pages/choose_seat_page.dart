@@ -161,21 +161,107 @@ class ChooseSeatPage extends StatelessWidget {
                 ),
               ],
             ),
+            //NOTE: SEAT 1
             // ignore: avoid_unnecessary_containers
             Container(
               margin: const EdgeInsets.only(top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  // ignore: prefer_const_constructors
-                  SeatItem(),
-                  SeatItem(),
-                  SeatItem(),
-                  SeatItem(),
-                  SeatItem(),
+                children: [
+                  const SeatItem(status: 0),
+                  const SeatItem(status: 1),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '2',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SeatItem(status: 2),
+                  const SeatItem(status: 0),
                 ],
               ),
-            )
+            ),
+            // ignore: avoid_unnecessary_containers
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const SeatItem(status: 0),
+                  const SeatItem(status: 1),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '3',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SeatItem(status: 2),
+                  const SeatItem(status: 0),
+                ],
+              ),
+            ),
+            // ignore: avoid_unnecessary_containers
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const SeatItem(status: 0),
+                  const SeatItem(status: 1),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '4',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SeatItem(status: 2),
+                  const SeatItem(status: 0),
+                ],
+              ),
+            ),
+            // ignore: avoid_unnecessary_containers
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const SeatItem(status: 0),
+                  const SeatItem(status: 1),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '5',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SeatItem(status: 2),
+                  const SeatItem(status: 0),
+                ],
+              ),
+            ),
           ],
         ),
       );
