@@ -1,6 +1,9 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/seat_item.dart';
 
 class ChooseSeatPage extends StatelessWidget {
   const ChooseSeatPage({Key? key}) : super(key: key);
@@ -94,8 +97,11 @@ class ChooseSeatPage extends StatelessWidget {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'A',
@@ -105,7 +111,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'B',
@@ -115,7 +123,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       '',
@@ -125,7 +135,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'C',
@@ -135,7 +147,9 @@ class ChooseSeatPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                Container(
+                  width: 48,
+                  height: 48,
                   child: Center(
                     child: Text(
                       'D',
@@ -147,6 +161,21 @@ class ChooseSeatPage extends StatelessWidget {
                 ),
               ],
             ),
+            // ignore: avoid_unnecessary_containers
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  // ignore: prefer_const_constructors
+                  SeatItem(),
+                  SeatItem(),
+                  SeatItem(),
+                  SeatItem(),
+                  SeatItem(),
+                ],
+              ),
+            )
           ],
         ),
       );
