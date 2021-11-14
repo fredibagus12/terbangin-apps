@@ -72,6 +72,100 @@ class CheckoutPage extends StatelessWidget {
       );
     }
 
+    // ignore: non_constant_identifier_names
+    Widget BookingDetails() {
+      return Container(
+        margin: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 30,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: kWhiteColor,
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 70,
+                  height: 70,
+                  margin: const EdgeInsets.only(right: 16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    // ignore: prefer_const_constructors
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      // ignore: prefer_const_constructors
+                      image: AssetImage(
+                        'assets/image_destination_1.png',
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // ignore: prefer_const_constructors
+                      Text(
+                        'name',
+                        style: blackTextStyle.copyWith(
+                          fontSize: 18,
+                          fontWeight: semiBold,
+                        ),
+                      ),
+                      // ignore: prefer_const_constructors
+                      SizedBox(
+                        height: 5,
+                      ),
+                      // ignore: avoid_unnecessary_containers
+                      Text(
+                        'asa',
+                        style: greyTextStyle.copyWith(
+                          fontWeight: light,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 20,
+                      height: 20,
+                      // ignore: prefer_const_constructors
+                      margin: EdgeInsets.only(right: 2),
+                      // ignore: prefer_const_constructors
+                      decoration: BoxDecoration(
+                        // ignore: prefer_const_constructors
+                        image: DecorationImage(
+                          // ignore: prefer_const_constructors
+                          image: AssetImage(
+                            'assets/star.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text(
+                      '5',
+                      style: blackTextStyle.copyWith(
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: ListView(
@@ -80,6 +174,7 @@ class CheckoutPage extends StatelessWidget {
         ),
         children: [
           Route(),
+          BookingDetails(),
         ],
       ),
     );
