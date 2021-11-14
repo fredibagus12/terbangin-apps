@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/widget/custom_button.dart';
 import 'package:terbangin/ui/widget/seat_item.dart';
 
 class ChooseSeatPage extends StatelessWidget {
@@ -26,7 +27,7 @@ class ChooseSeatPage extends StatelessWidget {
 
     Widget seatStatus() {
       return Container(
-        margin: const EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 16),
         child: Row(
           children: [
             Container(
@@ -262,9 +263,63 @@ class ChooseSeatPage extends StatelessWidget {
                 ],
               ),
             ),
+
+            // ignore: avoid_unnecessary_containers
+            Container(
+              margin: const EdgeInsets.only(top: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'your Seat',
+                    style: greyTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    'A3 B3',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total',
+                    style: greyTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    'IDR 150.000.000',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // ignore: avoid_unnecessary_containers
           ],
         ),
       );
+    }
+
+    Widget checkoutButton() {
+      return CustomButton(
+          title: 'Pesan sekarang',
+          onPressed: () {},
+          margin: const EdgeInsets.only(
+            top: 30,
+            bottom: 46,
+          ));
     }
 
     return Scaffold(
@@ -278,6 +333,7 @@ class ChooseSeatPage extends StatelessWidget {
           title(),
           seatStatus(),
           selectSeat(),
+          checkoutButton(),
         ],
       ),
     );
