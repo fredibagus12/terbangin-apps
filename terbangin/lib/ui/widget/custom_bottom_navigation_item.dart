@@ -1,5 +1,7 @@
+// ignore_for_file: implementation_imports
+
 import 'package:flutter/material.dart';
-// ignore: implementation_imports
+
 import 'package:provider/src/provider.dart';
 import 'package:terbangin/cubit/page_cubit.dart';
 import 'package:terbangin/shared/theme.dart';
@@ -23,7 +25,8 @@ class CustomBottomNavigationitem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SizedBox(),
+          // ignore: prefer_const_constructors
+          SizedBox(),
           Image.asset(
             imageUrl,
             width: 24,

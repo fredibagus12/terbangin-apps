@@ -1,6 +1,4 @@
-import 'package:bloc/bloc.dart';
-// ignore: unused_import
-import 'package:meta/meta.dart';
+import 'package:bloc/bloc.dart' show Cubit;
 
 class PageCubit extends Cubit<int> {
   PageCubit() : super(0);
