@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "342885433049",
+    "project_id": "terbangin-1629f",
+    "storage_bucket": "terbangin-1629f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342885433049:android:50fd68f48babef3c1c48c8",
+        "android_client_info": {
+          "package_name": "com.example.terbangin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342885433049-rk4e4rsljqf8bqrls2ubjj7dt7oip6be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAHTJFxwoRChAeWgNPwxUYxhRKvjXsVyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342885433049-rk4e4rsljqf8bqrls2ubjj7dt7oip6be.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
