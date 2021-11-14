@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/pages/success_checkout_page.dart';
 import 'package:terbangin/ui/widget/booking_details_item.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 
@@ -309,7 +310,15 @@ class CheckoutPage extends StatelessWidget {
     Widget payButton() {
       return CustomButton(
         title: 'Bayar Sekarang',
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              // ignore: prefer_const_constructors
+              builder: (context) => SuccessCheckoutPage(),
+            ),
+          );
+        },
         margin: const EdgeInsets.only(top: 30),
       );
     }
