@@ -33,9 +33,13 @@ class _SplashPageState extends State<SplashPage> {
             Container(
               width: 100,
               height: 100,
-              margin: const EdgeInsets.only(bottom: 50),
-              decoration: const BoxDecoration(
+              // ignore: prefer_const_constructors
+              margin: EdgeInsets.only(bottom: 50),
+              // ignore: prefer_const_constructors
+              decoration: BoxDecoration(
+                // ignore: prefer_const_constructors
                 image: DecorationImage(
+                  // ignore: prefer_const_constructors
                   image: AssetImage(
                     'assets/icon_plane.png',
                   ),

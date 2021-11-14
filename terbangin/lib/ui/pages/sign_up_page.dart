@@ -65,7 +65,6 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget submitButton() {
-        // ignore: sized_box_for_whitespace
         return CustomButton(
           title: 'mulai terbang Skarang',
           onPressed: () {

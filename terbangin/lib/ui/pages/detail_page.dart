@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:terbangin/shared/theme.dart';
+import 'package:terbangin/ui/pages/choose_seat_page.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 import 'package:terbangin/ui/widget/interest_item.dart';
 import 'package:terbangin/ui/widget/photo_item.dart';
@@ -253,7 +254,14 @@ class DetailPage extends StatelessWidget {
                   ),
                   CustomButton(
                     title: 'pesan ini',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChooseSeatPage(),
+                        ),
+                      );
+                    },
                     width: 170,
                   )
                 ],
