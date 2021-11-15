@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:terbangin/cubit/auth_cubit.dart';
+import 'package:terbangin/cubit/page_cubit.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 
@@ -21,8 +22,9 @@ class SettingPage extends StatelessWidget {
             ),
           );
         } else if (state is AuthInitial) {
+          context.read<PageCubit>().setPage(0);
           Navigator.pushNamedAndRemoveUntil(
-              context, '/sign-up', (route) => false);
+              context, '/sign-in', (route) => false);
         }
       },
       builder: (context, state) {
