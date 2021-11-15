@@ -8,8 +8,8 @@ import 'package:terbangin/ui/widget/custom_button.dart';
 import 'package:terbangin/ui/widget/custom_text_form_field.dart';
 
 // ignore: must_be_immutable
-class SignUpPage extends StatelessWidget {
-  SignUpPage({Key? key}) : super(key: key);
+class SignInPage extends StatelessWidget {
+  SignInPage({Key? key}) : super(key: key);
 
   final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController emailController = TextEditingController(text: '');
@@ -26,7 +26,7 @@ class SignUpPage extends StatelessWidget {
       return Container(
         margin: const EdgeInsets.only(top: 30),
         child: Text(
-          'Ikuti dan \nNikmati Perjalananmu',
+          'Sign In With Your \nExisting Account',
           style: blackTextStyle.copyWith(
             fontSize: 24,
             fontWeight: semiBold,
@@ -36,16 +36,6 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget inputSection() {
-      // ignore: non_constant_identifier_names
-      Widget InputNama() {
-        // ignore: prefer_const_constructors
-        return CustomtextFormField(
-          text: 'Nama Lengkap',
-          hintText: 'Isikan Nama Lengkap Kamu',
-          controller: nameController,
-        );
-      }
-
       // ignore: non_constant_identifier_names
       Widget InputEmail() {
         // ignore: prefer_const_constructors
@@ -64,16 +54,6 @@ class SignUpPage extends StatelessWidget {
           hintText: 'IsikanKatasandi Kamu',
           controller: passwordController,
           obsecure: true,
-        );
-      }
-
-      // ignore: non_constant_identifier_names
-      Widget Inputhobi() {
-        // ignore: prefer_const_constructors
-        return CustomtextFormField(
-          text: 'Hobi',
-          hintText: 'Isikan Hobi Kamu',
-          controller: hobiController,
         );
       }
 
@@ -99,7 +79,7 @@ class SignUpPage extends StatelessWidget {
             }
 
             return CustomButton(
-              title: 'mulai terbang Skarang',
+              title: 'Masuk Sekarang',
               onPressed: () {
                 context.read<AuthCubit>().signUp(
                       email: emailController.text,
@@ -113,10 +93,10 @@ class SignUpPage extends StatelessWidget {
         );
       }
 
-      Widget signinButton() {
+      Widget signupButton() {
         return GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/sign-in');
+            Navigator.pop(context);
           },
           child: Container(
             alignment: Alignment.center,
@@ -127,7 +107,7 @@ class SignUpPage extends StatelessWidget {
             ),
             // ignore: prefer_const_constructors
             child: Text(
-              'Have an Account? Sign In',
+              'Dont Have an Account? Sign Up',
               style: greyTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: light,
@@ -152,12 +132,10 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            InputNama(),
             InputEmail(),
             KataSandi(),
-            Inputhobi(),
             submitButton(),
-            signinButton(),
+            signupButton(),
           ],
         ),
       );

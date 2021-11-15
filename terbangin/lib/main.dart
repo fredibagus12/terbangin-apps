@@ -6,6 +6,7 @@ import 'package:terbangin/cubit/page_cubit.dart';
 import 'package:terbangin/ui/pages/bonus_page.dart';
 import 'package:terbangin/ui/pages/get_started.dart';
 import 'package:terbangin/ui/pages/main_page.dart';
+import 'package:terbangin/ui/pages/sign_in_page.dart';
 import 'package:terbangin/ui/pages/sign_up_page.dart';
 import 'ui/pages/splash_page.dart';
 
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => const SplashPage(),
           '/get-started': (context) => const GetStartedPage(),
           '/sign-up': (context) => SignUpPage(),
+          '/sign-in': (context) => SignInPage(),
           '/bonus': (context) => const BonusPage(),
           '/main': (context) => const MainPage(),
         },
