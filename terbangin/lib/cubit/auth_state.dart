@@ -21,7 +21,8 @@ class AuthSuccess extends AuthState {
 }
 
 class AuthFailed extends AuthState {
-  final UserModel error;
+  final String error;
+
   // ignore: prefer_const_constructors_in_immutables
   AuthFailed(this.error);
 

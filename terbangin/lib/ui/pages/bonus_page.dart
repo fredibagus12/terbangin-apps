@@ -138,7 +138,7 @@ class BonusPage extends StatelessWidget {
         // ignore: prefer_const_constructors
         margin: EdgeInsets.only(top: 50),
         onPressed: () {
-          Navigator.pushNamed(context, '/main');
+          Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
         },
       );
     }

@@ -1,6 +1,8 @@
 // ignore_for_file: unused_element, duplicate_ignore, dead_code
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:terbangin/cubit/auth_cubit.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 import 'package:terbangin/ui/widget/custom_text_form_field.dart';
@@ -75,10 +77,37 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget submitButton() {
-        return CustomButton(
-          title: 'mulai terbang Skarang',
-          onPressed: () {
-            Navigator.pushNamed(context, '/bonus');
+        return BlocConsumer<AuthCubit, AuthState>(
+          listener: (context, state) {
+            if (state is AuthSuccess) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/bonus', (route) => false);
+            } else if (state is AuthFailed) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.error),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is AuthLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            return CustomButton(
+              title: 'mulai terbang Skarang',
+              onPressed: () {
+                context.read<AuthCubit>().signUp(
+                      email: emailController.text,
+                      password: passwordController.text,
+                      name: nameController.text,
+                      hobi: hobiController.text,
+                    );
+              },
+            );
           },
         );
       }

@@ -33,6 +33,7 @@ class CustomtextFormField extends StatelessWidget {
           TextFormField(
             obscureText: obsecure,
             cursorColor: kBlackColor,
+            controller: controller,
             decoration: InputDecoration(
               hintText: hintText,
               border: OutlineInputBorder(
