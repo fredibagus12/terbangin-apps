@@ -5,8 +5,14 @@ import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 import 'package:terbangin/ui/widget/custom_text_form_field.dart';
 
+// ignore: must_be_immutable
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  SignUpPage({Key? key}) : super(key: key);
+
+  TextEditingController nameController = TextEditingController(text: '');
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+  TextEditingController hobiController = TextEditingController(text: '');
 
   @override
   // ignore: duplicate_ignore
@@ -33,6 +39,7 @@ class SignUpPage extends StatelessWidget {
         return CustomtextFormField(
           text: 'Nama Lengkap',
           hintText: 'Isikan Nama Lengkap Kamu',
+          controller: nameController,
         );
       }
 
@@ -42,6 +49,7 @@ class SignUpPage extends StatelessWidget {
         return CustomtextFormField(
           text: 'Alamat Email',
           hintText: 'Isikan alamat Email Kamu',
+          controller: emailController,
         );
       }
 
@@ -51,6 +59,7 @@ class SignUpPage extends StatelessWidget {
         return CustomtextFormField(
           text: 'Katasandi',
           hintText: 'IsikanKatasandi Kamu',
+          controller: passwordController,
           obsecure: true,
         );
       }
@@ -61,6 +70,7 @@ class SignUpPage extends StatelessWidget {
         return CustomtextFormField(
           text: 'Hobi',
           hintText: 'Isikan Hobi Kamu',
+          controller: hobiController,
         );
       }
 

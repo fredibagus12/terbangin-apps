@@ -15,8 +15,7 @@ class UserServices {
         'balance': user.balance,
       });
     } catch (e) {
-      // ignore: use_rethrow_when_possible
-      throw e;
+      rethrow;
     }
   }
 }
