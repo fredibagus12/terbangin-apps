@@ -11,10 +11,11 @@ import 'package:terbangin/ui/widget/custom_text_form_field.dart';
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key: key);
 
-  TextEditingController nameController = TextEditingController(text: '');
-  TextEditingController emailController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController hobiController = TextEditingController(text: '');
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController passwordController =
+      TextEditingController(text: '');
+  final TextEditingController hobiController = TextEditingController(text: '');
 
   @override
   // ignore: duplicate_ignore
