@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+// ignore: implementation_imports
+import 'package:provider/src/provider.dart';
+import 'package:terbangin/cubit/auth_cubit.dart';
 import 'package:terbangin/shared/theme.dart';
 // ignore: unused_import
 import 'package:terbangin/ui/pages/get_started.dart';
@@ -23,6 +26,7 @@ class _SplashPageState extends State<SplashPage> {
         Navigator.pushNamedAndRemoveUntil(
             context, '/get-started', (route) => false);
       } else {
+        context.read<AuthCubit>().getCurrentUser(user.uid);
         Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
       }
     });

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:terbangin/cubit/auth_cubit.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/widget/destination_card.dart';
 import 'package:terbangin/ui/widget/destination_tile.dart';
@@ -11,53 +13,61 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget header() {
-      return Container(
-        margin: EdgeInsets.only(
-          left: defaultMargin,
-          right: defaultMargin,
-          top: 30,
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: (Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Apa Kabar, \nFredi Bagus',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 24,
-                      fontWeight: semiBold,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  Text(
-                    'Bagaimana Kabarmu Hari ini?',
-                    style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: regular,
-                    ),
-                  ),
-                ],
-              )),
-            ),
-            Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/image_profil.png',
-                  ),
-                ),
+      return BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is AuthSuccess) {
+            return Container(
+              margin: EdgeInsets.only(
+                left: defaultMargin,
+                right: defaultMargin,
+                top: 30,
               ),
-            )
-          ],
-        ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: (Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Apa Kabar, \n ${state.user.name}',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 24,
+                            fontWeight: semiBold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          'Bagaimana Kabarmu Hari ini?',
+                          style: greyTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: regular,
+                          ),
+                        ),
+                      ],
+                    )),
+                  ),
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/image_profil.png',
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            );
+          } else {
+            return SizedBox();
+          }
+        },
       );
     }
 

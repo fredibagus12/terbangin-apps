@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:terbangin/models/user_model.dart';
 import 'package:terbangin/services/auth_services.dart';
+import 'package:terbangin/services/user_services.dart';
 
 part 'auth_state.dart';
 
@@ -32,6 +33,15 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthLoading());
       await AuthServices().signOut();
       emit(AuthInitial());
+    } catch (e) {
+      emit(AuthFailed(e.toString()));
+    }
+  }
+
+  void getCurrentUser(String id) async {
+    try {
+      UserModel user = await UserServices().getUserById(id);
+      emit(AuthSuccess(user));
     } catch (e) {
       emit(AuthFailed(e.toString()));
     }
