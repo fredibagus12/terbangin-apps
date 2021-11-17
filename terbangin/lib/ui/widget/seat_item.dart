@@ -4,71 +4,63 @@ import 'package:terbangin/shared/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SeatItem extends StatelessWidget {
-  final int status;
+  // final int status;
   final String id;
+  final bool isAvailable;
   const SeatItem({
     Key? key,
-    required this.status,
+    // required this.status,
+    this.isAvailable = true,
     required this.id,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    bool isSelected = context.read<SeatCubit>().isSelected(id);
     // ignore: non_constant_identifier_names
     backgroundColor() {
-      switch (status) {
-        case 0:
-          return kUnavailableColor;
-        case 1:
+      if (!isAvailable) {
+        return kUnavailableColor;
+      } else {
+        if (isSelected) {
           return kPrimaryColor;
-        case 2:
+        } else {
           return kUnavailableColor;
-
-        default:
-          return kUnavailableColor;
+        }
       }
     }
 
     // ignore: non_constant_identifier_names
     BorderColor() {
-      switch (status) {
-        case 0:
-          return kPrimaryColor;
-        case 1:
-          return kPrimaryColor;
-        case 2:
-          return kUnavailableColor;
-
-        default:
-          return kUnavailableColor;
+      if (!isAvailable) {
+        return kUnavailableColor;
+      } else {
+        return kPrimaryColor;
       }
     }
 
     // ignore: non_constant_identifier_names
     Child() {
-      switch (status) {
-        case 0:
-          return const SizedBox();
-        case 1:
-          return Center(
-            child: Text(
-              'YOU',
-              style: whiteTextStyle.copyWith(
-                fontWeight: semiBold,
-              ),
+      if (isSelected) {
+        return Center(
+          child: Text(
+            'YOU',
+            style: whiteTextStyle.copyWith(
+              fontWeight: semiBold,
             ),
-          );
-        case 2:
-          return const SizedBox();
-
-        default:
-          return const SizedBox();
+          ),
+        );
+      } else {
+        return const SizedBox();
       }
     }
 
     return GestureDetector(
       onTap: () {
-        context.read<SeatCubit>().selectSeat(id);
+        if (isAvailable) {
+          context.read<SeatCubit>().selectSeat(id);
+        }
       },
       child: Container(
         width: 48,
