@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:terbangin/cubit/auth_cubit.dart';
 import 'package:terbangin/cubit/destination_cubit.dart';
 import 'package:terbangin/cubit/page_cubit.dart';
+import 'package:terbangin/cubit/seat_cubit.dart';
 import 'package:terbangin/ui/pages/bonus_page.dart';
 import 'package:terbangin/ui/pages/get_started.dart';
 import 'package:terbangin/ui/pages/main_page.dart';
@@ -33,7 +34,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DestinationCubit(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => SeatCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
