@@ -19,7 +19,7 @@ class DestinationTile extends StatelessWidget {
           context,
           MaterialPageRoute(
             // ignore: prefer_const_constructors
-            builder: (context) => DetailPage(),
+            builder: (context) => DetailPage(destinationstile),
           ),
         );
       },

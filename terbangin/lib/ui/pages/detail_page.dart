@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:terbangin/models/destination_model.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/pages/choose_seat_page.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
@@ -8,7 +10,8 @@ import 'package:terbangin/ui/widget/interest_item.dart';
 import 'package:terbangin/ui/widget/photo_item.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final DestinationModel destinations;
+  const DetailPage(this.destinations, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +22,8 @@ class DetailPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage(
-              'assets/image_destination_1.png',
+            image: NetworkImage(
+              destinations.imageUrl,
             ),
           ),
         ),
@@ -80,14 +83,14 @@ class DetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Danau Venesia',
+                          destinations.name,
                           style: whiteTextStyle.copyWith(
                             fontSize: 24,
                             fontWeight: semiBold,
                           ),
                         ),
                         Text(
-                          'Italia',
+                          destinations.city,
                           style: whiteTextStyle.copyWith(
                             fontSize: 16,
                             fontWeight: light,
@@ -113,7 +116,7 @@ class DetailPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '2.3',
+                        destinations.rating.toString(),
                         style: whiteTextStyle.copyWith(
                           fontWeight: semiBold,
                         ),
@@ -237,7 +240,11 @@ class DetailPage extends StatelessWidget {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         Text(
-                          'IDR 2.500.000',
+                          NumberFormat.currency(
+                            locale: 'id',
+                            symbol: 'IDR ',
+                            decimalDigits: 0,
+                          ).format(destinations.price),
                           style: blackTextStyle.copyWith(
                             fontSize: 18,
                             fontWeight: medium,
