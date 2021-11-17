@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:terbangin/models/destination_model.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/pages/detail_page.dart';
 
 class DestinationTile extends StatelessWidget {
-  final String name;
-  final String city;
-  final String imageUrl;
-  final double rating;
+  final DestinationModel destinationstile;
 
   const DestinationTile(
-      {Key? key,
-      required this.name,
-      required this.city,
-      required this.imageUrl,
-      this.rating = 0.0})
-      : super(key: key);
+    this.destinationstile, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +41,8 @@ class DestinationTile extends StatelessWidget {
                 // ignore: prefer_const_constructors
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage(
-                    imageUrl,
+                  image: NetworkImage(
+                    destinationstile.imageUrl,
                   ),
                 ),
               ),
@@ -59,7 +54,7 @@ class DestinationTile extends StatelessWidget {
                 children: [
                   // ignore: prefer_const_constructors
                   Text(
-                    name,
+                    destinationstile.name,
                     style: blackTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: semiBold,
@@ -71,7 +66,7 @@ class DestinationTile extends StatelessWidget {
                   ),
                   // ignore: avoid_unnecessary_containers
                   Text(
-                    city,
+                    destinationstile.city,
                     style: greyTextStyle.copyWith(
                       fontWeight: light,
                     ),
@@ -100,7 +95,7 @@ class DestinationTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  rating.toString(),
+                  destinationstile.rating.toString(),
                   style: blackTextStyle.copyWith(
                     fontWeight: semiBold,
                   ),

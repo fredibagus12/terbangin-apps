@@ -17,6 +17,8 @@ class DestinationSuccess extends DestinationState {
   const DestinationSuccess(this.destinations);
   @override
   List<Object> get props => (destinations);
+
+  get destinationstile => null;
 }
 
 class DestinationFailed extends DestinationState {
