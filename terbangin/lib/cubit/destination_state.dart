@@ -12,16 +12,16 @@ class DestinationInitial extends DestinationState {}
 class DestinationLoading extends DestinationState {}
 
 class DestinationSuccess extends DestinationState {
-  final List<DestinationState> destination;
-  // ignore: prefer_const_constructors_in_immutables
-  DestinationSuccess(this.destination);
+  final List<DestinationModel> destinations;
+
+  const DestinationSuccess(this.destinations);
   @override
-  List<Object> get props => (destination);
+  List<Object> get props => (destinations);
 }
 
 class DestinationFailed extends DestinationState {
-  final List<DestinationState> error;
+  final String error;
   const DestinationFailed(this.error);
   @override
-  List<Object> get props => (error);
+  List<Object> get props => [error];
 }
