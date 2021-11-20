@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:terbangin/cubit/seat_cubit.dart';
 import 'package:terbangin/models/destination_model.dart';
+import 'package:terbangin/models/transaction_model.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/pages/checkout_page.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
@@ -365,22 +366,37 @@ class ChooseSeatPage extends StatelessWidget {
     }
 
     Widget checkoutButton() {
-      return CustomButton(
-          title: 'Pesan sekarang',
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                // ignore: prefer_const_constructors
-                builder: (context) => CheckoutPage(),
-              ),
-            );
-          },
-          // ignore: prefer_const_constructors
-          margin: EdgeInsets.only(
-            top: 30,
-            bottom: 46,
-          ));
+      return BlocBuilder<SeatCubit, List<String>>(
+        builder: (context, state) {
+          return CustomButton(
+              title: 'Pesan sekarang',
+              onPressed: () {
+                int price = destinations.price * state.length;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    // ignore: prefer_const_constructors
+                    builder: (context) => CheckoutPage(
+                      TransactionModel(
+                        destination: destinations,
+                        amountOfTraveler: state.length,
+                        selectedSeat: state.join(', '),
+                        insurance: true,
+                        refundable: true,
+                        price: price,
+                        grandTotal: price * (price * 0.45).toInt(),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              // ignore: prefer_const_constructors
+              margin: EdgeInsets.only(
+                top: 30,
+                bottom: 46,
+              ));
+        },
+      );
     }
 
     return Scaffold(

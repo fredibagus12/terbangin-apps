@@ -1,13 +1,15 @@
 // ignore_for_file: avoid_unnecessary_c
 
 import 'package:flutter/material.dart';
+import 'package:terbangin/models/transaction_model.dart';
 import 'package:terbangin/shared/theme.dart';
 import 'package:terbangin/ui/pages/success_checkout_page.dart';
 import 'package:terbangin/ui/widget/booking_details_item.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 
 class CheckoutPage extends StatelessWidget {
-  const CheckoutPage({Key? key}) : super(key: key);
+  const CheckoutPage(TransactionModel transactionModel, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
