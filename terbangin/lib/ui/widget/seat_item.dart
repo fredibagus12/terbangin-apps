@@ -17,7 +17,7 @@ class SeatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    bool isSelected = context.read<SeatCubit>().isSelected(id);
+    bool isSelected = context.watch<SeatCubit>().isSelected(id);
     // ignore: non_constant_identifier_names
     backgroundColor() {
       if (!isAvailable) {
