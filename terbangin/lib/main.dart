@@ -5,6 +5,7 @@ import 'package:terbangin/cubit/auth_cubit.dart';
 import 'package:terbangin/cubit/destination_cubit.dart';
 import 'package:terbangin/cubit/page_cubit.dart';
 import 'package:terbangin/cubit/seat_cubit.dart';
+import 'package:terbangin/cubit/transaction_cubit.dart';
 import 'package:terbangin/ui/pages/bonus_page.dart';
 import 'package:terbangin/ui/pages/get_started.dart';
 import 'package:terbangin/ui/pages/main_page.dart';
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SeatCubit(),
+        ),
+        BlocProvider(
+          create: (context) => TransactionCubit(),
         ),
       ],
       child: MaterialApp(
