@@ -11,6 +11,7 @@ import 'package:terbangin/ui/pages/get_started.dart';
 import 'package:terbangin/ui/pages/main_page.dart';
 import 'package:terbangin/ui/pages/sign_in_page.dart';
 import 'package:terbangin/ui/pages/sign_up_page.dart';
+import 'package:terbangin/ui/pages/success_checkout_page.dart';
 import 'ui/pages/splash_page.dart';
 
 void main() async {
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
           '/sign-in': (context) => SignInPage(),
           '/bonus': (context) => const BonusPage(),
           '/main': (context) => const MainPage(),
+          '/success': (context) => const SuccessCheckoutPage(),
         },
       ),
     );

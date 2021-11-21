@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:terbangin/cubit/auth_cubit.dart';
+import 'package:terbangin/cubit/transaction_cubit.dart';
 import 'package:terbangin/models/transaction_model.dart';
 import 'package:terbangin/shared/theme.dart';
-import 'package:terbangin/ui/pages/success_checkout_page.dart';
 import 'package:terbangin/ui/widget/booking_details_item.dart';
 import 'package:terbangin/ui/widget/custom_button.dart';
 
@@ -120,7 +120,7 @@ class CheckoutPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'name',
+                        transaction.destination.name,
                         style: blackTextStyle.copyWith(
                           fontSize: 18,
                           fontWeight: semiBold,
@@ -130,7 +130,7 @@ class CheckoutPage extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        transaction.destination.name,
+                        transaction.destination.city,
                         style: greyTextStyle.copyWith(
                           fontWeight: light,
                         ),
@@ -340,18 +340,36 @@ class CheckoutPage extends StatelessWidget {
     }
 
     Widget payButton() {
-      return CustomButton(
-        title: 'Bayar Sekarang',
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
+      return BlocConsumer<TransactionCubit, TransactionState>(
+        listener: (context, state) {
+          if (state is TransactionSuccess) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/success', (route) => false);
+          } else if (state is TransactionFailed) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.error),
+              ),
+            );
+          }
+        },
+        builder: (context, state) {
+          if (state is TransactionLoading) {
+            return Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 30),
               // ignore: prefer_const_constructors
-              builder: (context) => SuccessCheckoutPage(),
-            ),
+              child: CircularProgressIndicator(),
+            );
+          }
+          return CustomButton(
+            title: 'Bayar Sekarang',
+            onPressed: () {
+              context.read<TransactionCubit>().createTransaction(transaction);
+            },
+            margin: const EdgeInsets.only(top: 30),
           );
         },
-        margin: const EdgeInsets.only(top: 30),
       );
     }
 
